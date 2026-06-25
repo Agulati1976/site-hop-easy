@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import SeoLinksGrid from "@/components/SeoLinksGrid";
+import heroAsset from "@/assets/russian-party-goa-hero.jpg.asset.json";
 import {
   Phone,
   MessageCircle,
@@ -18,6 +20,8 @@ import {
   Star,
   Clock,
   Flame,
+  Menu,
+  X,
 } from "lucide-react";
 
 // Images live in /public/images so they ship with the static build and load
@@ -30,6 +34,7 @@ const dancers = { url: "/images/16.41.40.jpeg" };
 const pole = { url: "/images/16.41.41.jpeg" };
 const club = { url: "/images/16.42.12.jpeg" };
 const card = { url: "/images/16.42.12-1.jpeg" };
+const hero = { url: heroAsset.url };
 
 const PHONE = "+918793432338";
 const PHONE_DISPLAY = "+91 87934 32338";
@@ -89,6 +94,15 @@ const faqs = [
 ];
 
 export default function Home() {
+  const [open, setOpen] = useState(false);
+  const navLinks = [
+    ["About", "#about"],
+    ["Services", "#services"],
+    ["Experience", "#experience"],
+    ["Events", "#events"],
+    ["Contact", "#contact"],
+  ];
+
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -118,18 +132,12 @@ export default function Home() {
       {/* NAV */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-line/60 bg-ink/85 backdrop-blur-md">
         <div className="container-page flex items-center justify-between py-4">
-          <a href="#hero" className="flex flex-col leading-none">
-            <span className="font-display text-xl tracking-[0.12em] text-white">RUSSIAN NIGHT LOUNGE</span>
+          <a href="#hero" className="flex min-w-0 flex-col leading-none">
+            <span className="font-display text-base tracking-[0.08em] text-white sm:text-xl sm:tracking-[0.12em]">RUSSIAN NIGHT LOUNGE</span>
             <span className="mt-1 text-[0.6rem] tracking-[0.35em] text-gold uppercase">Goa · Est. Calangute</span>
           </a>
           <nav className="hidden gap-8 md:flex">
-            {[
-              ["About", "#about"],
-              ["Services", "#services"],
-              ["Experience", "#experience"],
-              ["Events", "#events"],
-              ["Contact", "#contact"],
-            ].map(([label, href]) => (
+            {navLinks.map(([label, href]) => (
               <a
                 key={href}
                 href={href}
@@ -152,7 +160,45 @@ export default function Home() {
               <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
             </a>
           </div>
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="relative z-[60] flex h-11 w-11 shrink-0 items-center justify-center border border-gold bg-gold text-ink shadow-[0_8px_24px_rgba(201,151,58,0.35)] md:hidden"
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
+        {open && (
+          <nav className="border-t border-line/60 bg-ink/98 shadow-2xl md:hidden">
+            <div className="container-page flex flex-col gap-4 py-6">
+              {navLinks.map(([label, href]) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm font-semibold tracking-[0.18em] uppercase text-cream transition hover:text-gold"
+                >
+                  {label}
+                </a>
+              ))}
+              <div className="mt-2 flex flex-col gap-3 border-t border-line/60 pt-4">
+                <a href={`tel:${PHONE}`} className="flex items-center gap-2 text-sm font-semibold tracking-wide text-gold">
+                  <Phone className="h-4 w-4" /> {PHONE_DISPLAY}
+                </a>
+                <a
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex w-fit items-center gap-2 bg-whatsapp px-4 py-2 text-sm font-semibold tracking-[0.15em] uppercase text-white"
+                >
+                  <MessageCircle className="h-4 w-4" /> WhatsApp
+                </a>
+              </div>
+            </div>
+          </nav>
+        )}
       </header>
 
       <main>
@@ -160,7 +206,7 @@ export default function Home() {
         <section id="hero" className="relative flex min-h-screen items-center overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${club.url})` }}
+            style={{ backgroundImage: `url(${hero.url})` }}
             aria-hidden
           />
           <div
