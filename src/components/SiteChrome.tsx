@@ -83,9 +83,26 @@ export function SiteFooter() {
 
 export function FloatingWhatsApp() {
   return (
-    <a href={WHATSAPP} target="_blank" rel="noreferrer" aria-label="WhatsApp Russian Night Lounge Goa"
-      className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-[0_10px_30px_rgba(37,211,102,0.45)] transition hover:scale-110">
-      <MessageCircle className="h-6 w-6" />
-    </a>
+    <>
+      {/* WhatsApp — left on mobile, right on desktop */}
+      <a
+        href={WHATSAPP}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="WhatsApp Russian Night Lounge Goa"
+        className="fixed bottom-6 left-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-[0_10px_30px_rgba(37,211,102,0.45)] transition hover:scale-110 md:left-auto md:right-6"
+      >
+        <MessageCircle className="h-6 w-6" />
+      </a>
+      {/* Call — right on mobile only (desktop nav already has the number) */}
+      <a
+        href={PHONE_TEL}
+        aria-label="Call Russian Night Lounge Goa"
+        className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-gold to-gold-soft text-ink shadow-[0_10px_30px_rgba(201,151,58,0.45)] transition hover:scale-110 md:hidden"
+      >
+        <Phone className="h-6 w-6" />
+      </a>
+    </>
   );
 }
+
