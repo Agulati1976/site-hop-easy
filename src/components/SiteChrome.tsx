@@ -22,8 +22,8 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line/60 bg-ink/85 backdrop-blur-md">
       <div className="container-page flex items-center justify-between py-4">
-        <a href="/" className="flex flex-col leading-none">
-          <span className="font-display text-xl tracking-[0.12em] text-white">RUSSIAN NIGHT LOUNGE</span>
+        <a href="/" className="flex min-w-0 flex-col leading-none">
+          <span className="font-display text-base tracking-[0.08em] text-white sm:text-xl sm:tracking-[0.12em]">RUSSIAN NIGHT LOUNGE</span>
           <span className="mt-1 text-[0.6rem] tracking-[0.35em] text-gold uppercase">Goa · Est. Calangute</span>
         </a>
 
@@ -46,9 +46,11 @@ export function SiteHeader() {
 
         {/* Hamburger — mobile only */}
         <button
+          type="button"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
-          className="flex h-10 w-10 items-center justify-center text-white md:hidden"
+          aria-expanded={open}
+          className="relative z-[60] flex h-11 w-11 shrink-0 items-center justify-center border border-gold bg-gold text-ink shadow-[0_8px_24px_rgba(201,151,58,0.35)] md:hidden"
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
