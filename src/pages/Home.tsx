@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import SeoLinksGrid from "@/components/SeoLinksGrid";
 import {
   Phone,
   MessageCircle,
