@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import SeoLinksGrid from "@/components/SeoLinksGrid";
-import heroAsset from "@/assets/russian-party-goa-hero.jpg.asset.json";
+const heroAsset = { url: "/images/hero.jpg" };
 import {
   Phone,
   MessageCircle,
