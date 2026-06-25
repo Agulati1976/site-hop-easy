@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-sitemap.mjs && vite build",
-    "build:dev": "node scripts/generate-sitemap.mjs && vite build --mode development",
+    "build": "node scripts/generate-sitemap.mjs && vite build && cp public/.htaccess dist/.htaccess",
+    "build:dev": "node scripts/generate-sitemap.mjs && vite build --mode development && cp public/.htaccess dist/.htaccess",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."
