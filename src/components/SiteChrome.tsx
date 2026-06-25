@@ -1,4 +1,5 @@
-import { Phone, MessageCircle, Instagram, Facebook, Youtube } from "lucide-react";
+import { useState } from "react";
+import { Phone, MessageCircle, Instagram, Facebook, Youtube, Menu, X } from "lucide-react";
 
 export const PHONE = "+918793432338";
 export const PHONE_DISPLAY = "+91 87934 32338";
@@ -8,6 +9,16 @@ export const WHATSAPP =
 export const EMAIL = "russiannightlounge@gmail.com";
 
 export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  const links = [
+    ["Home", "/"],
+    ["Russian Party", "/russian-dance-in-goa/"],
+    ["Night Club", "/disco-club-goa-russian-party-nightlife/"],
+    ["Beach Party", "/beach-party-in-goa/"],
+    ["Russian Pub", "/russian-pub-in-goa/"],
+    ["FAQ", "/faq/"],
+  ];
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line/60 bg-ink/85 backdrop-blur-md">
       <div className="container-page flex items-center justify-between py-4">
@@ -15,20 +26,15 @@ export function SiteHeader() {
           <span className="font-display text-xl tracking-[0.12em] text-white">RUSSIAN NIGHT LOUNGE</span>
           <span className="mt-1 text-[0.6rem] tracking-[0.35em] text-gold uppercase">Goa · Est. Calangute</span>
         </a>
+
         <nav className="hidden gap-8 md:flex">
-          {[
-            ["Home", "/"],
-            ["Russian Party", "/russian-dance-in-goa/"],
-            ["Night Club", "/disco-club-goa-russian-party-nightlife/"],
-            ["Beach Party", "/beach-party-in-goa/"],
-            ["Russian Pub", "/russian-pub-in-goa/"],
-            ["FAQ", "/faq/"],
-          ].map(([label, href]) => (
+          {links.map(([label, href]) => (
             <a key={href} href={href} className="text-[0.72rem] tracking-[0.18em] uppercase text-cream/85 transition hover:text-gold">
               {label}
             </a>
           ))}
         </nav>
+
         <div className="hidden items-center gap-3 md:flex">
           <a href={`tel:${PHONE}`} className="flex items-center gap-2 text-[0.72rem] font-semibold tracking-wide text-gold">
             <Phone className="h-3.5 w-3.5" /> {PHONE_DISPLAY}
@@ -37,7 +43,42 @@ export function SiteHeader() {
             <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
           </a>
         </div>
+
+        {/* Hamburger — mobile only */}
+        <button
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          className="flex h-10 w-10 items-center justify-center text-white md:hidden"
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </div>
+
+      {/* Mobile drawer */}
+      {open && (
+        <div className="border-t border-line/60 bg-ink/95 backdrop-blur-md md:hidden">
+          <nav className="container-page flex flex-col gap-4 py-6">
+            {links.map(([label, href]) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => setOpen(false)}
+                className="text-sm tracking-[0.18em] uppercase text-cream/85 transition hover:text-gold"
+              >
+                {label}
+              </a>
+            ))}
+            <div className="mt-2 flex flex-col gap-3 border-t border-line/60 pt-4">
+              <a href={`tel:${PHONE}`} className="flex items-center gap-2 text-sm font-semibold tracking-wide text-gold">
+                <Phone className="h-4 w-4" /> {PHONE_DISPLAY}
+              </a>
+              <a href={WHATSAPP} target="_blank" rel="noreferrer" className="inline-flex w-fit items-center gap-2 bg-whatsapp px-4 py-2 text-sm font-semibold tracking-[0.15em] uppercase text-white">
+                <MessageCircle className="h-4 w-4" /> WhatsApp
+              </a>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
