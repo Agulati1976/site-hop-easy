@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import SeoHead from "@/components/SeoHead";
 import SeoLinksGrid from "@/components/SeoLinksGrid";
 const heroAsset = { url: "/images/hero.jpg" };
 import {
@@ -120,19 +120,13 @@ export default function Home() {
 
   return (
     <>
-      <Helmet>
-        <title>Russian Night Lounge Goa | #1 Russian Party & Night Club in Goa</title>
-        <meta
-          name="description"
-          content="Russian Night Lounge is the most exclusive Russian party in Goa. Experience the best Russian night club in Goa with belly dance, pole dance, hookah and electrifying DJ nights. Book your table now!"
-        />
-        <link rel="canonical" href="https://russianpartyingoa.com/" />
-        <meta property="og:title" content="Russian Night Lounge Goa | #1 Russian Party & Night Club in Goa" />
-        <meta property="og:url" content="https://russianpartyingoa.com/" />
-        <meta property="og:image" content={card.url} />
-        <meta name="twitter:image" content={card.url} />
-        <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
-      </Helmet>
+      <SeoHead
+        title="Russian Night Lounge Goa | #1 Russian Party & Night Club in Goa"
+        description="Russian Night Lounge is the most exclusive Russian party in Goa. Experience the best Russian night club in Goa with belly dance, pole dance, hookah and electrifying DJ nights. Book your table now!"
+        canonical="https://russianpartyingoa.com/"
+        image={`https://russianpartyingoa.com${card.url}`}
+        jsonLd={[faqLd]}
+      />
 
       {/* NAV */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-line/60 bg-ink/85 backdrop-blur-md">

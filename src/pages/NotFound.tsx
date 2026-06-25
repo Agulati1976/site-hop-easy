@@ -1,13 +1,14 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import SeoHead from "@/components/SeoHead";
 
 export default function NotFound() {
   return (
     <>
-      <Helmet>
-        <title>Page not found — Russian Party In Goa</title>
-        <meta name="robots" content="noindex" />
-      </Helmet>
+      <SeoHead
+        title="Page not found — Russian Party In Goa"
+        description="The page you're looking for could not be found. Browse Russian Night Lounge Goa — the #1 Russian party in Goa."
+        robots="noindex"
+      />
 
       <main className="flex min-h-screen items-center justify-center bg-background px-6">
         <div className="max-w-md text-center">
