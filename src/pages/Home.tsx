@@ -37,8 +37,14 @@ const card = { url: "/images/16.42.12-1.jpeg" };
 const hero = { url: heroAsset.url };
 import hookahAsset from "@/assets/hookah-party.jpg.asset.json";
 import bellyAsset from "@/assets/belly-dance.jpg.asset.json";
+import exoticAsset from "@/assets/exotic-dancers.jpg.asset.json";
+import bellyShowAsset from "@/assets/belly-dance-show.jpg.asset.json";
+import russianDancerAsset from "@/assets/russian-dancer.jpg.asset.json";
 const hookah = { url: hookahAsset.url };
 const belly = { url: bellyAsset.url };
+const exotic = { url: exoticAsset.url };
+const bellyShow = { url: bellyShowAsset.url };
+const russianDancer = { url: russianDancerAsset.url };
 
 const PHONE = "+918793432338";
 const PHONE_DISPLAY = "+91 87934 32338";
@@ -445,6 +451,78 @@ export default function Home() {
                     </a>
                     <a href={`tel:${PHONE}`} className="inline-flex items-center gap-2 border border-gold px-5 py-2.5 text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-gold transition hover:bg-gold hover:text-ink">
                       <Phone className="h-3.5 w-3.5" /> Call Now
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* STAR PERFORMERS POSTERS */}
+        <section className="py-24 md:py-32 bg-deep/30">
+          <div className="container-page">
+            <div className="mx-auto max-w-2xl text-center">
+              <span className="eyebrow">Star Performers</span>
+              <h2 className="mt-3 display-lg">
+                Meet the <span className="text-gold">Stars of Club Midnight</span>
+              </h2>
+              <div className="mx-auto my-5 h-px w-12 bg-gradient-to-r from-transparent via-gold to-transparent" />
+              <p className="serif-lead">
+                Exotic dancers, belly dance queens and Russian showgirls — the heart of every Russian party in Goa.
+              </p>
+            </div>
+
+            <div className="mt-14 grid gap-8 md:grid-cols-3">
+              {/* Exotic Dancers */}
+              <article className="overflow-hidden border border-line bg-card transition hover:border-gold/60">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img src={exotic.url} alt="Exotic Dancers at Club Midnight Russian Night Lounge Goa" className="h-full w-full object-cover transition duration-700 hover:scale-105" loading="lazy" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-2xl tracking-wide text-white">Exotic Dancers in Goa</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    Watch Goa's most talented exotic dancers — belly, pole and contemporary performers — take over the Club Midnight stage every night. The signature attraction of the #1 Russian night club in Goa, blending world-class choreography with high-energy showmanship.
+                  </p>
+                  <div className="mt-5">
+                    <a href={WHATSAPP} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-whatsapp px-5 py-2.5 text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-white">
+                      <MessageCircle className="h-3.5 w-3.5" /> Book Show
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              {/* Belly Dance */}
+              <article className="overflow-hidden border border-line bg-card transition hover:border-gold/60">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img src={bellyShow.url} alt="Belly Dance Show in Goa at Russian Night Lounge" className="h-full w-full object-cover transition duration-700 hover:scale-105" loading="lazy" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-2xl tracking-wide text-white">Belly Dance in Goa</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    Authentic belly dance performances by trained international artists. From classical Arabian to fusion routines, every belly dance show in Goa at Club Midnight is a hypnotic, soulful spectacle — the highlight of our Russian party nights in Calangute.
+                  </p>
+                  <div className="mt-5">
+                    <a href={`tel:${PHONE}`} className="inline-flex items-center gap-2 border border-gold px-5 py-2.5 text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-gold hover:bg-gold hover:text-ink">
+                      <Phone className="h-3.5 w-3.5" /> Call to Reserve
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              {/* Russian Dancer */}
+              <article className="overflow-hidden border border-line bg-card transition hover:border-gold/60">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img src={russianDancer.url} alt="Russian Dancer at Club Midnight - Russian Party in Goa" className="h-full w-full object-cover transition duration-700 hover:scale-105" loading="lazy" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-2xl tracking-wide text-white">Russian Dancers in Goa</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    Glamorous Russian dancers headline every weekend at Club Midnight — the most authentic Russian party in Goa. Stunning choreography, dazzling outfits and Russian electro beats make our Russian dance shows the most loved nightlife experience in North Goa.
+                  </p>
+                  <div className="mt-5">
+                    <a href={WHATSAPP} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-whatsapp px-5 py-2.5 text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-white">
+                      <MessageCircle className="h-3.5 w-3.5" /> Book VIP Table
                     </a>
                   </div>
                 </div>
