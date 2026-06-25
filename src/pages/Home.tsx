@@ -517,6 +517,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* ALL SEO PAGES INTERNAL LINKS */}
+        <SeoLinksGrid />
       </main>
 
       {/* FOOTER */}
