@@ -35,6 +35,10 @@ const pole = { url: "/images/16.41.41.jpeg" };
 const club = { url: "/images/16.42.12.jpeg" };
 const card = { url: "/images/16.42.12-1.jpeg" };
 const hero = { url: heroAsset.url };
+import hookahAsset from "@/assets/hookah-party.jpg.asset.json";
+import bellyAsset from "@/assets/belly-dance.jpg.asset.json";
+const hookah = { url: hookahAsset.url };
+const belly = { url: bellyAsset.url };
 
 const PHONE = "+918793432338";
 const PHONE_DISPLAY = "+91 87934 32338";
