@@ -19,14 +19,16 @@ import {
   Flame,
 } from "lucide-react";
 
-import dj from "@/assets/16.41.36-1.jpeg.asset.json";
-import drinks from "@/assets/16.41.39.jpeg.asset.json";
-import food from "@/assets/16.41.39-1.jpeg.asset.json";
-import cocktail from "@/assets/16.41.40-2.jpeg.asset.json";
-import dancers from "@/assets/16.41.40.jpeg.asset.json";
-import pole from "@/assets/16.41.41.jpeg.asset.json";
-import club from "@/assets/16.42.12.jpeg.asset.json";
-import card from "@/assets/16.42.12-1.jpeg.asset.json";
+// Images live in /public/images so they ship with the static build and load
+// directly from the user's domain on Hostinger.
+const dj = { url: "/images/16.41.36-1.jpeg" };
+const drinks = { url: "/images/16.41.39.jpeg" };
+const food = { url: "/images/16.41.39-1.jpeg" };
+const cocktail = { url: "/images/16.41.40-2.jpeg" };
+const dancers = { url: "/images/16.41.40.jpeg" };
+const pole = { url: "/images/16.41.41.jpeg" };
+const club = { url: "/images/16.42.12.jpeg" };
+const card = { url: "/images/16.42.12-1.jpeg" };
 
 const PHONE = "+918793432338";
 const PHONE_DISPLAY = "+91 87934 32338";
