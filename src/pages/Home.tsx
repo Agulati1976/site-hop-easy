@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import SeoLinksGrid from "@/components/SeoLinksGrid";
 import {
   Phone,
   MessageCircle,
@@ -517,6 +518,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* ALL SEO PAGES INTERNAL LINKS */}
+        <SeoLinksGrid />
       </main>
 
       {/* FOOTER */}

@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Phone, MessageCircle, Calendar, MapPin, Mail, Sparkles, Flame, Wine, Headphones, Crown, Cake } from "lucide-react";
 import { SiteHeader, SiteFooter, FloatingWhatsApp, PHONE, PHONE_DISPLAY, WHATSAPP, EMAIL } from "@/components/SiteChrome";
+import KeywordBacklinks from "@/components/KeywordBacklinks";
 import type { SeoPageData } from "@/content/seoPages";
 
 const heroImg = "/images/16.42.12.jpeg";
@@ -249,6 +250,7 @@ export default function SeoPage({ data }: { data: SeoPageData }) {
         </section>
       </main>
 
+      <KeywordBacklinks />
       <SiteFooter />
       <FloatingWhatsApp />
     </>
