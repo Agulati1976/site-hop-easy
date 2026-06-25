@@ -63,52 +63,52 @@ function replaceOrInsertMeta(html: string, selector: RegExp, replacement: string
 }
 
 function applyMeta(html: string, meta: typeof HOME_META) {
-  let output = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(meta.title)}</title>`);
+  let output = html.replace(/<title[\s\S]*?>[\s\S]*?<\/title>/, `<title data-rh="true">${escapeHtml(meta.title)}</title>`);
 
   output = replaceOrInsertMeta(
     output,
-    /<meta\s+name="description"[\s\S]*?\/>/,
-    `<meta name="description" content="${escapeHtml(meta.description)}" />`,
+    /<meta(?=[^>]*\bname="description")[^>]*>/,
+    `<meta data-rh="true" name="description" content="${escapeHtml(meta.description)}" />`,
   );
   output = replaceOrInsertMeta(
     output,
-    /<link\s+rel="canonical"[\s\S]*?\/>/,
-    `<link rel="canonical" href="${escapeHtml(meta.canonical)}" />`,
+    /<link(?=[^>]*\brel="canonical")[^>]*>/,
+    `<link data-rh="true" rel="canonical" href="${escapeHtml(meta.canonical)}" />`,
   );
   output = replaceOrInsertMeta(
     output,
-    /<meta\s+property="og:title"[\s\S]*?\/>/,
-    `<meta property="og:title" content="${escapeHtml(meta.title)}" />`,
+    /<meta(?=[^>]*\bproperty="og:title")[^>]*>/,
+    `<meta data-rh="true" property="og:title" content="${escapeHtml(meta.title)}" />`,
   );
   output = replaceOrInsertMeta(
     output,
-    /<meta\s+property="og:description"[\s\S]*?\/>/,
-    `<meta property="og:description" content="${escapeHtml(meta.description)}" />`,
+    /<meta(?=[^>]*\bproperty="og:description")[^>]*>/,
+    `<meta data-rh="true" property="og:description" content="${escapeHtml(meta.description)}" />`,
   );
   output = replaceOrInsertMeta(
     output,
-    /<meta\s+property="og:url"[\s\S]*?\/>/,
-    `<meta property="og:url" content="${escapeHtml(meta.canonical)}" />`,
+    /<meta(?=[^>]*\bproperty="og:url")[^>]*>/,
+    `<meta data-rh="true" property="og:url" content="${escapeHtml(meta.canonical)}" />`,
   );
   output = replaceOrInsertMeta(
     output,
-    /<meta\s+property="og:image"[\s\S]*?\/>/,
-    `<meta property="og:image" content="${escapeHtml(meta.image)}" />`,
+    /<meta(?=[^>]*\bproperty="og:image")[^>]*>/,
+    `<meta data-rh="true" property="og:image" content="${escapeHtml(meta.image)}" />`,
   );
   output = replaceOrInsertMeta(
     output,
-    /<meta\s+name="twitter:title"[\s\S]*?\/>/,
-    `<meta name="twitter:title" content="${escapeHtml(meta.title)}" />`,
+    /<meta(?=[^>]*\bname="twitter:title")[^>]*>/,
+    `<meta data-rh="true" name="twitter:title" content="${escapeHtml(meta.title)}" />`,
   );
   output = replaceOrInsertMeta(
     output,
-    /<meta\s+name="twitter:description"[\s\S]*?\/>/,
-    `<meta name="twitter:description" content="${escapeHtml(meta.description)}" />`,
+    /<meta(?=[^>]*\bname="twitter:description")[^>]*>/,
+    `<meta data-rh="true" name="twitter:description" content="${escapeHtml(meta.description)}" />`,
   );
   output = replaceOrInsertMeta(
     output,
-    /<meta\s+name="twitter:image"[\s\S]*?\/>/,
-    `<meta name="twitter:image" content="${escapeHtml(meta.image)}" />`,
+    /<meta(?=[^>]*\bname="twitter:image")[^>]*>/,
+    `<meta data-rh="true" name="twitter:image" content="${escapeHtml(meta.image)}" />`,
   );
 
   return output;

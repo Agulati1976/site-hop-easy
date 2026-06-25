@@ -45,52 +45,52 @@ function esc(s) {
 function rewriteHead(html, { title, description, canonical, image }) {
   let out = html;
   // <title>
-  out = out.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`);
+  out = out.replace(/<title[\s\S]*?>[\s\S]*?<\/title>/, `<title data-rh="true">${esc(title)}</title>`);
   // description
   out = out.replace(
-    /<meta\s+name="description"[\s\S]*?\/>/,
-    `<meta name="description" content="${esc(description)}" />`,
+    /<meta(?=[^>]*\bname="description")[^>]*>/,
+    `<meta data-rh="true" name="description" content="${esc(description)}" />`,
   );
   // canonical
   out = out.replace(
-    /<link\s+rel="canonical"[\s\S]*?\/>/,
-    `<link rel="canonical" href="${esc(canonical)}" />`,
+    /<link(?=[^>]*\brel="canonical")[^>]*>/,
+    `<link data-rh="true" rel="canonical" href="${esc(canonical)}" />`,
   );
   // og:title
   out = out.replace(
-    /<meta\s+property="og:title"[\s\S]*?\/>/,
-    `<meta property="og:title" content="${esc(title)}" />`,
+    /<meta(?=[^>]*\bproperty="og:title")[^>]*>/,
+    `<meta data-rh="true" property="og:title" content="${esc(title)}" />`,
   );
   // og:description
   out = out.replace(
-    /<meta\s+property="og:description"[\s\S]*?\/>/,
-    `<meta property="og:description" content="${esc(description)}" />`,
+    /<meta(?=[^>]*\bproperty="og:description")[^>]*>/,
+    `<meta data-rh="true" property="og:description" content="${esc(description)}" />`,
   );
   // og:url
   out = out.replace(
-    /<meta\s+property="og:url"[\s\S]*?\/>/,
-    `<meta property="og:url" content="${esc(canonical)}" />`,
+    /<meta(?=[^>]*\bproperty="og:url")[^>]*>/,
+    `<meta data-rh="true" property="og:url" content="${esc(canonical)}" />`,
   );
   // twitter:title
   out = out.replace(
-    /<meta\s+name="twitter:title"[\s\S]*?\/>/,
-    `<meta name="twitter:title" content="${esc(title)}" />`,
+    /<meta(?=[^>]*\bname="twitter:title")[^>]*>/,
+    `<meta data-rh="true" name="twitter:title" content="${esc(title)}" />`,
   );
   // twitter:description
   out = out.replace(
-    /<meta\s+name="twitter:description"[\s\S]*?\/>/,
-    `<meta name="twitter:description" content="${esc(description)}" />`,
+    /<meta(?=[^>]*\bname="twitter:description")[^>]*>/,
+    `<meta data-rh="true" name="twitter:description" content="${esc(description)}" />`,
   );
   // og:image (insert if not present)
   if (/property="og:image"/.test(out)) {
     out = out.replace(
-      /<meta\s+property="og:image"[\s\S]*?\/>/,
-      `<meta property="og:image" content="${esc(image)}" />`,
+      /<meta(?=[^>]*\bproperty="og:image")[^>]*>/,
+      `<meta data-rh="true" property="og:image" content="${esc(image)}" />`,
     );
   } else {
     out = out.replace(
       /<\/head>/,
-      `    <meta property="og:image" content="${esc(image)}" />\n  </head>`,
+      `    <meta data-rh="true" property="og:image" content="${esc(image)}" />\n  </head>`,
     );
   }
   return out;
