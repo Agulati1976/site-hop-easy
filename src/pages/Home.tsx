@@ -32,7 +32,7 @@ const card = { url: "/images/16.42.12-1.jpeg" };
 
 const PHONE = "+918793432338";
 const PHONE_DISPLAY = "+91 87934 32338";
-const WHATSAPP = `https://api.whatsapp.com/send/?phone=918793432338&text=Hello+Russian+Night+Lounge+Goa&type=phone_number&app_absent=0`;
+const WHATSAPP = `https://api.whatsapp.com/send/?phone=918793432338&text=Hello+Goa+Night+Club&type=phone_number&app_absent=0`;
 const EMAIL = "russiannightlounge@gmail.com";
 
 const services = [
