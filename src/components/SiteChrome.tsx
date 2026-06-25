@@ -2,8 +2,9 @@ import { Phone, MessageCircle, Instagram, Facebook, Youtube } from "lucide-react
 
 export const PHONE = "+918793432338";
 export const PHONE_DISPLAY = "+91 87934 32338";
+export const PHONE_TEL = "tel:+918793432338";
 export const WHATSAPP =
-  "https://api.whatsapp.com/send/?phone=918793432338&text=Hello+Russian+Night+Lounge+Goa&type=phone_number&app_absent=0";
+  "https://api.whatsapp.com/send/?phone=918793432338&text=Hello+Goa+Night+Club&type=phone_number&app_absent=0";
 export const EMAIL = "russiannightlounge@gmail.com";
 
 export function SiteHeader() {
