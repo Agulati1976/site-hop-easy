@@ -383,6 +383,76 @@ export default function Home() {
           </div>
         </section>
 
+        {/* SPECIAL NIGHTS POSTERS */}
+        <section className="py-24 md:py-32">
+          <div className="container-page">
+            <div className="mx-auto max-w-2xl text-center">
+              <span className="eyebrow">Special Nights</span>
+              <h2 className="mt-3 display-lg">
+                Signature Experiences at <span className="text-gold">Club Midnight</span>
+              </h2>
+              <div className="mx-auto my-5 h-px w-12 bg-gradient-to-r from-transparent via-gold to-transparent" />
+              <p className="serif-lead">
+                Two of our most talked-about nights — premium hookah sessions and mesmerizing belly dance performances that define the Russian party in Goa.
+              </p>
+            </div>
+
+            <div className="mt-14 grid gap-8 md:grid-cols-2">
+              {/* Hookah Party */}
+              <article className="overflow-hidden border border-line bg-card transition hover:border-gold/60">
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img
+                    src={hookah.url}
+                    alt="Hookah Party at Russian Night Lounge Goa"
+                    className="h-full w-full object-cover transition duration-700 hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-2xl tracking-wide text-white">Hookah Party</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    Step into our premium hookah lounge and choose from a curated selection of flavors — from classic double apple to exotic blueberry mint and Russian-inspired blends. Our hookah masters craft every session with precision, using top-tier equipment for smooth, thick clouds that set the mood for the night. Whether you're relaxing between dance sets or kicking back with friends, the Hookah Party at Russian Night Lounge is an essential part of the Goa nightlife experience.
+                  </p>
+                  <div className="mt-5 flex items-center gap-4">
+                    <a href={WHATSAPP} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-whatsapp px-5 py-2.5 text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-white transition hover:opacity-90">
+                      <MessageCircle className="h-3.5 w-3.5" /> Book Hookah
+                    </a>
+                    <a href={`tel:${PHONE}`} className="inline-flex items-center gap-2 border border-gold px-5 py-2.5 text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-gold transition hover:bg-gold hover:text-ink">
+                      <Phone className="h-3.5 w-3.5" /> Call Now
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              {/* Belly Dance Shows */}
+              <article className="overflow-hidden border border-line bg-card transition hover:border-gold/60">
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img
+                    src={belly.url}
+                    alt="Belly Dance Shows at Russian Night Lounge Goa"
+                    className="h-full w-full object-cover transition duration-700 hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-2xl tracking-wide text-white">Belly Dance Shows</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    Be captivated by world-class belly dance performances that light up the stage at Club Midnight. Our professional dancers bring the art of belly dancing to life with hypnotic moves, dazzling costumes and an energy that electrifies the entire room. Performed weekly as part of our signature entertainment lineup, these shows are the highlight of every Russian party in Goa — an unforgettable spectacle of grace, rhythm and glamour you won't find anywhere else on the Calangute strip.
+                  </p>
+                  <div className="mt-5 flex items-center gap-4">
+                    <a href={WHATSAPP} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-whatsapp px-5 py-2.5 text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-white transition hover:opacity-90">
+                      <MessageCircle className="h-3.5 w-3.5" /> Book Table
+                    </a>
+                    <a href={`tel:${PHONE}`} className="inline-flex items-center gap-2 border border-gold px-5 py-2.5 text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-gold transition hover:bg-gold hover:text-ink">
+                      <Phone className="h-3.5 w-3.5" /> Call Now
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
         {/* SERVICES */}
         <section id="services" className="py-24 md:py-32">
           <div className="container-page">
