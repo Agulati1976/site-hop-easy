@@ -1,7 +1,7 @@
-import { Helmet } from "react-helmet-async";
 import { Phone, MessageCircle, Calendar, MapPin, Mail, Sparkles, Flame, Wine, Headphones, Crown, Cake } from "lucide-react";
 import { SiteHeader, SiteFooter, FloatingWhatsApp, PHONE, PHONE_DISPLAY, WHATSAPP, EMAIL } from "@/components/SiteChrome";
 import KeywordBacklinks from "@/components/KeywordBacklinks";
+import SeoHead from "@/components/SeoHead";
 import type { SeoPageData } from "@/content/seoPages";
 
 const heroImg = "/images/16.42.12.jpeg";
@@ -64,24 +64,14 @@ export default function SeoPage({ data }: { data: SeoPageData }) {
 
   return (
     <>
-      <Helmet>
-        <title>{data.title}</title>
-        <meta name="description" content={data.description} />
-        <meta name="keywords" content={data.keywords.join(", ")} />
-        <link rel="canonical" href={canonical} />
-        <meta property="og:title" content={data.title} />
-        <meta property="og:description" content={data.description} />
-        <meta property="og:url" content={canonical} />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content={`https://russianpartyingoa.com${cardImg}`} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={data.title} />
-        <meta name="twitter:description" content={data.description} />
-        <meta name="twitter:image" content={`https://russianpartyingoa.com${cardImg}`} />
-        <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(localBizLd)}</script>
-      </Helmet>
+      <SeoHead
+        title={data.title}
+        description={data.description}
+        canonical={canonical}
+        keywords={data.keywords.join(", ")}
+        image={`https://russianpartyingoa.com${cardImg}`}
+        jsonLd={[faqLd, breadcrumbLd, localBizLd]}
+      />
 
       <SiteHeader />
 

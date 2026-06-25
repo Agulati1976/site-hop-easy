@@ -1,7 +1,7 @@
-import { Helmet } from "react-helmet-async";
 import { SiteHeader, SiteFooter, FloatingWhatsApp, WHATSAPP } from "@/components/SiteChrome";
 import { Phone, MessageCircle } from "lucide-react";
 import { PHONE, PHONE_DISPLAY } from "@/components/SiteChrome";
+import SeoHead from "@/components/SeoHead";
 
 export interface StaticPageProps {
   title: string;
@@ -16,14 +16,7 @@ export default function StaticPage({ title, description, path, h1, intro, blocks
   const canonical = `https://russianpartyingoa.com${path}`;
   return (
     <>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href={canonical} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:url" content={canonical} />
-      </Helmet>
+      <SeoHead title={title} description={description} canonical={canonical} />
       <SiteHeader />
       <main className="pt-28">
         <section className="container-page mx-auto max-w-4xl py-16">
