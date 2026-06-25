@@ -1,6 +1,6 @@
 // Generates public/sitemap.xml from the route list below.
 // Run automatically before `vite build` (see package.json "build" script).
-// Add new pages here when you add them to src/App.tsx.
+// Keep this list in sync with src/content/seoPages.ts + src/content/staticPages.ts.
 
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
@@ -9,12 +9,46 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const BASE_URL = "https://russianpartyingoa.com";
 
-/** @type {Array<{ path: string; changefreq?: string; priority?: string }>} */
+const danceClubLocs = ["goa", "baga-beach", "calangute"];
+const beachPartyLocs = [
+  "goa","baga-beach","candolim","anjuna","panjim","mandrem","nerul","morjim","mapusa",
+  "arambol","siolim","sligo","nagoa","arpora","porvorim","vagator","south-goa","north-goa",
+];
+const russianDanceLocs = [
+  "goa","calangute","baga-beach","candolim","anjuna","panjim","mandrem","nerul","morjim",
+  "mapusa","arambol","siolim","saligao","nagoa","arpora","porvorim","vagator","north-goa","south-goa",
+];
+const discoClubIn = [
+  "calangute","nerul","morjim","mapusa","arambol","siolim","saligao","nagoa","arpora",
+  "porvorim","vagator","south-goa","north-goa",
+];
+const discoClubNightlife = ["baga-beach","candolim","anjuna","panjim","mandrem"];
+const russianPubLocs = [
+  "goa","calangute","baga-beach","candolim","anjuna","panjim","mandrem","nerul","morjim",
+  "mapusa","arambol","siolim","saligao","nagoa","arpora","porvorim","vagator","south-goa","north-goa",
+];
+const ladiesBarLocs = ["goa","calangute","baga-beach"];
+
+const seoRoutes = [
+  ...danceClubLocs.map((k) => `/dance-club-in-${k}/`),
+  ...beachPartyLocs.map((k) => `/beach-party-in-${k}/`),
+  ...russianDanceLocs.map((k) => `/russian-dance-in-${k}/`),
+  "/disco-club-goa-russian-party-nightlife/",
+  ...discoClubIn.map((k) => `/disco-club-in-${k}/`),
+  ...discoClubNightlife.map((k) => `/disco-club-${k}-goa-nightlife/`),
+  ...russianPubLocs.map((k) => `/russian-pub-in-${k}/`),
+  ...ladiesBarLocs.map((k) => `/ladies-bar-in-${k}/`),
+];
+
+const staticRoutes = [
+  "/faq/", "/what-we-offer/", "/appointment-page/", "/blog/",
+  "/sample-page/", "/comming-soon/", "/404-page/",
+];
+
 const routes = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
-  // Add more pages here as we build them:
-  // { path: "/events",   changefreq: "weekly", priority: "0.8" },
-  // { path: "/contact",  changefreq: "monthly", priority: "0.6" },
+  ...seoRoutes.map((p) => ({ path: p, changefreq: "weekly", priority: "0.8" })),
+  ...staticRoutes.map((p) => ({ path: p, changefreq: "monthly", priority: "0.5" })),
 ];
 
 const today = new Date().toISOString().slice(0, 10);

@@ -1,0 +1,86 @@
+import type { StaticPageProps } from "@/pages/StaticPage";
+
+export const STATIC_PAGES: StaticPageProps[] = [
+  {
+    path: "/faq/",
+    title: "FAQ | Russian Party in Goa — Russian Night Lounge",
+    description: "Frequently asked questions about Russian Night Lounge — Goa's #1 Russian party, night club, bookings, dress code, timings, drinks packages and more.",
+    h1: "Frequently Asked Questions",
+    intro: "Everything you need to know before visiting Goa's #1 Russian night club — from bookings and timings to dress code, packages and private events.",
+    blocks: [
+      { h: "Where is Russian Night Lounge located?", p: "We are located in North Goa, Calangute 403516 — minutes from Baga, Candolim and Anjuna. Look for Club Midnight on the Calangute strip." },
+      { h: "What are the opening hours?", p: "We are open every night of the week from 8:30 PM till late. Live performances usually begin by 9:30 PM and DJ sets run till 3–4 AM on weekends." },
+      { h: "How do I book a table?", p: "Call or WhatsApp +91 87934 32338. We accept bookings for couples, groups, VIP tables, birthdays, bachelorettes and full private events. Walk-ins welcome subject to availability." },
+      { h: "Is there a dress code?", p: "Smart-chic or glamorous attire is recommended. Beachwear, slippers and sportswear are not permitted after 9 PM." },
+      { h: "Do you offer unlimited drinks?", p: "Yes — most party nights include an unlimited drinks and beer + food package. We also serve a full à la carte cocktail, hookah and Russian/Indian menu." },
+      { h: "Is it safe for ladies and couples?", p: "Absolutely. We are Goa's most welcoming Russian-themed venue with a dedicated ladies night, professional security and a couple-friendly seating policy." },
+      { h: "Do you host private parties?", p: "Yes — birthdays, bachelorettes, corporate events and full venue buyouts are all available. Speak to our team for custom packages." },
+    ],
+  },
+  {
+    path: "/what-we-offer/",
+    title: "What We Offer | Russian Night Lounge Goa — Russian Party in Goa",
+    description: "Discover everything Russian Night Lounge offers — Russian DJ nights, belly dance, pole dance, premium hookah, cocktails, unlimited drinks and VIP tables in Goa.",
+    h1: "What We Offer",
+    intro: "Goa's most complete Russian party experience — performances, premium drinks, hookah, food and VIP service, every single night.",
+    blocks: [
+      { h: "Live Russian DJ Nights", p: "Resident and guest DJs spin Russian electro, Bollywood remixes and international house — the dance floor stays packed till sunrise." },
+      { h: "Belly Dance & Pole Spectacular", p: "Professional belly dancers and pole performers headline rotating themed nights. Saturdays are our signature Pole Dance Spectacular." },
+      { h: "Cocktail, Vodka & Hookah Bar", p: "Imported vodka, single-malts, signature cocktails and 12+ hookah flavours — the most stylish bar on the Calangute strip." },
+      { h: "Unlimited Drinks Packages", p: "Most party nights include unlimited drinks, beer and food at one fixed price — the best value Russian party in Goa." },
+      { h: "VIP & Private Events", p: "Reserve VIP tables with bottle service, or buy out the venue for birthdays, bachelorettes and corporate parties." },
+      { h: "Russian & Goan Cuisine", p: "Pelmeni, blini, borscht and authentic Russian classics alongside Indian, Goan and continental favourites from our late-night kitchen." },
+    ],
+  },
+  {
+    path: "/appointment-page/",
+    title: "Book an Appointment | Russian Night Lounge Goa",
+    description: "Book a table at Russian Night Lounge Goa — Goa's #1 Russian party. Reservations for couples, groups, VIP tables, birthdays and private events.",
+    h1: "Book Your Appointment",
+    intro: "Reserve your table at Goa's #1 Russian night club. Call or WhatsApp to confirm in seconds.",
+    blocks: [
+      { h: "Fastest Way to Book", p: "Call or WhatsApp +91 87934 32338 with your date, time and number of guests. Our team confirms in minutes and walks you through table options and packages." },
+      { h: "What to Include in Your Booking", p: "Your name, party size, preferred seating (couple / group / VIP), arrival time and the occasion (birthday, bachelorette, anniversary). We'll prep accordingly." },
+      { h: "Private & Corporate Events", p: "We host birthdays, bachelorettes, corporate nights and full venue buyouts. Share your brief and we'll send a tailored package." },
+    ],
+  },
+  {
+    path: "/blog/",
+    title: "Blog | Russian Party in Goa, Russian Night Club Updates",
+    description: "Latest from Russian Night Lounge Goa — Russian party news, Goa nightlife updates, themed events and behind-the-scenes from Goa's #1 Russian night club.",
+    h1: "Russian Night Lounge Blog",
+    intro: "News, themed-event announcements and Goa nightlife stories from the team at Russian Night Lounge.",
+    blocks: [
+      { h: "Coming Soon", p: "We're moving our blog to its new home. Follow us on Instagram @russian_club_goa for daily updates, party photos and event announcements." },
+      { h: "Featured Topics", p: "Russian party in Goa, best Russian night clubs in North Goa, belly dance shows in Calangute, pole dance Saturdays, beach party guides and more." },
+    ],
+  },
+  {
+    path: "/sample-page/",
+    title: "About Russian Night Lounge | Russian Party in Goa",
+    description: "About Russian Night Lounge — Goa's #1 Russian party and night club, located in North Goa Calangute. Belly dance, pole dance, hookah and DJ nights.",
+    h1: "About Russian Night Lounge",
+    intro: "Goa's #1 Russian party, born in North Goa Calangute — where Russian nightlife meets Goan beach energy.",
+    blocks: [
+      { h: "Our Story", p: "Russian Night Lounge began with a simple idea — bring the best of Moscow and St. Petersburg nightlife to Goa, and pair it with the laid-back beach energy that makes Goa unique. Years on, we're the default Russian night club for tourists, the Russian community and Goa regulars alike." },
+      { h: "Our Venue", p: "Located on the Calangute strip at 403516, our two-floor venue features a main DJ stage, a pole-dance arena, a premium hookah lounge and a VIP enclosure with bottle service." },
+      { h: "Our Crowd", p: "A glamorous mix of Russian, European, Indian and international guests — couples, friends, celebrators and Goa's biggest nightlife fans, every single night." },
+    ],
+  },
+  {
+    path: "/comming-soon/",
+    title: "Coming Soon | Russian Night Lounge Goa",
+    description: "New experiences are coming soon at Russian Night Lounge Goa — Goa's #1 Russian party. Stay tuned for upcoming themed nights and events.",
+    h1: "Coming Soon",
+    intro: "Big things are on the way. Follow us on Instagram to be first in line.",
+    blocks: [{ h: "Stay in the Loop", p: "Follow @russian_club_goa on Instagram or WhatsApp +91 87934 32338 to be first to know about new themed nights, VIP guest DJs and seasonal Russian party specials." }],
+  },
+  {
+    path: "/404-page/",
+    title: "Page Not Found | Russian Night Lounge Goa",
+    description: "The page you're looking for could not be found. Browse Russian Night Lounge Goa — the #1 Russian party in Goa.",
+    h1: "Page Not Found",
+    intro: "The page you're looking for has moved or doesn't exist. Use the buttons below to head home or call us.",
+    blocks: [{ h: "Looking for Something?", p: "Try our homepage, our FAQ, or call +91 87934 32338. We're happy to help you find what you need." }],
+  },
+];
