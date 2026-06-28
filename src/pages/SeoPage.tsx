@@ -118,7 +118,10 @@ export default function SeoPage({ data }: { data: SeoPageData }) {
                   <span className="text-gold">{s.h.split(" ").slice(-2).join(" ")}</span>
                 </h2>
                 <div className="mx-0 my-5 h-px w-12 bg-gradient-to-r from-gold to-transparent" />
-                <p className="text-cream/85 leading-relaxed text-base md:text-lg">{s.p}</p>
+                <p
+                  className="text-cream/85 leading-relaxed text-base md:text-lg [&_a]:text-gold [&_a]:underline [&_a:hover]:text-gold-soft"
+                  dangerouslySetInnerHTML={{ __html: s.p }}
+                />
               </article>
             ))}
           </div>
