@@ -8,12 +8,14 @@ const CATEGORY_LABEL: Record<Category, string> = {
   "disco-club": "Disco Clubs & Nightlife",
   "russian-pub": "Russian Pubs & Bars",
   "ladies-bar": "Ladies Bars in Goa",
+  "belly-dance": "Belly Dance in Goa",
 };
 
 const CATEGORY_ORDER: Category[] = [
   "dance-club",
   "disco-club",
   "russian-dance",
+  "belly-dance",
   "russian-pub",
   "beach-party",
   "ladies-bar",
@@ -37,6 +39,7 @@ export default function SeoLinksGrid() {
     "disco-club": [],
     "russian-pub": [],
     "ladies-bar": [],
+    "belly-dance": [],
   };
   for (const p of SEO_PAGES) grouped[p.category].push(p);
 

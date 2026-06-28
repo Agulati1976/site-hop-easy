@@ -126,6 +126,8 @@ function pageHero(cat: Category, loc: string): string {
       return `Premium vodka, Russian classics and an authentic lounge vibe right here in ${loc}.`;
     case "ladies-bar":
       return `Goa's most upscale ladies bar — stylish, safe and unforgettable nights in ${loc}.`;
+    case "belly-dance":
+      return `Live belly dance shows, Arabic rhythms and Russian fusion sets — ${loc}'s favourite belly dance destination.`;
   }
 }
 
@@ -140,6 +142,7 @@ function sectionsFor(cat: Category, loc: string): { h: string; p: string }[] {
     "disco-club": `The best disco club in ${loc} blends Russian electro, Bollywood remixes and international house into one non-stop dance floor. Russian Night Lounge is the disco that locals, tourists and the Russian community in ${loc} have made their default home for late-night clubbing in Goa.`,
     "russian-pub": `Looking for an authentic Russian pub in ${loc}? Step inside Russian Night Lounge — premium imported vodka, Russian beer, signature cocktails and a lounge ambience built around the spirit of Moscow nightlife. The most loved Russian bar in ${loc} is open every night till late.`,
     "ladies-bar": `A ladies bar in ${loc} should feel safe, glamorous and full of energy — and that's exactly what Russian Night Lounge delivers. Stylish décor, premium drinks, Russian dancers and Goa's most welcoming ladies-night experience in ${loc}.`,
+    "belly-dance": `Belly dance in ${loc} comes alive at Russian Night Lounge — Arabic-style oriental sets, Russian fusion choreography and the most-watched live belly dance shows in ${loc}.`,
   };
 
   return [
