@@ -567,6 +567,8 @@ export const SEO_PAGES: SeoPageData[] = [
   ...LOCS.ladiesBar.map((k) =>
     buildSeoPage("ladies-bar", `ladies-bar-in-${k}`, k, LOC_NAMES[k]),
   ),
+  // Belly dance — bespoke per-location pages with unique copy and cross-links
+  ...BELLY_LOCS.map((k) => buildBellyDancePage(k)),
 ];
 
 export function findSeoPage(path: string): SeoPageData | undefined {
