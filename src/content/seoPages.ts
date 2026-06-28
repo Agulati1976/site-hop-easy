@@ -12,7 +12,8 @@ export type Category =
   | "russian-dance"
   | "disco-club"
   | "russian-pub"
-  | "ladies-bar";
+  | "ladies-bar"
+  | "belly-dance";
 
 export interface SeoPageData {
   slug: string;            // e.g. "dance-club-in-goa"
@@ -36,6 +37,7 @@ const CATEGORY_LABEL: Record<Category, string> = {
   "disco-club": "Disco Club",
   "russian-pub": "Russian Pub",
   "ladies-bar": "Ladies Bar",
+  "belly-dance": "Belly Dance",
 };
 
 const CATEGORY_KEYWORDS: Record<Category, string[]> = {
@@ -45,6 +47,14 @@ const CATEGORY_KEYWORDS: Record<Category, string[]> = {
   "disco-club": ["disco club", "nightclub", "russian night club", "disco party"],
   "russian-pub": ["russian pub", "russian bar", "russian lounge", "russian vodka bar"],
   "ladies-bar": ["ladies bar", "ladies night", "girls bar", "ladies dance bar"],
+  "belly-dance": [
+    "belly dance",
+    "belly dancers",
+    "live belly dance show",
+    "professional belly dancers",
+    "arabic belly dance",
+    "belly dance performance",
+  ],
 };
 
 const SHARED_KEYWORDS = [
