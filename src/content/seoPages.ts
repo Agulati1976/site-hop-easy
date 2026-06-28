@@ -81,6 +81,8 @@ function pageTitle(cat: Category, loc: string): string {
       return `${c} in ${loc} | Best Russian Bar & Lounge in ${loc}`;
     case "ladies-bar":
       return `${c} in ${loc} | Top Ladies Night & Russian Party Bar in ${loc}`;
+    case "belly-dance":
+      return `${c} in ${loc} | Live Belly Dance Shows & Performances in ${loc}`;
   }
 }
 
@@ -98,12 +100,16 @@ function pageDescription(cat: Category, loc: string): string {
       return `Russian pub in ${loc} — premium vodka, signature cocktails, hookah and authentic Russian lounge vibe. The most loved Russian bar and pub experience in ${loc}.`;
     case "ladies-bar":
       return `Ladies bar in ${loc} — safe, stylish and electrifying. Ladies night specials, Russian dancers, premium drinks and Goa's most upscale ladies bar experience in ${loc}.`;
+    case "belly-dance":
+      return `Watch the most mesmerising belly dance shows in ${loc} — professional belly dancers, Arabic & Russian fusion sets, live performances every night at Russian Night Lounge, ${loc}'s favourite belly dance destination.`;
   }
 }
 
 function pageH1(cat: Category, loc: string): string {
   const c = CATEGORY_LABEL[cat];
-  return cat === "russian-dance" ? `Russian Dance in ${loc}` : `${c} in ${loc}`;
+  if (cat === "russian-dance") return `Russian Dance in ${loc}`;
+  if (cat === "belly-dance") return `Belly Dance in ${loc}`;
+  return `${c} in ${loc}`;
 }
 
 function pageHero(cat: Category, loc: string): string {
