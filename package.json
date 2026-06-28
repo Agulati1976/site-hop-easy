@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-sitemap.mjs && vite build && cp public/.htaccess dist/.htaccess && node scripts/prerender-meta.mjs",
-    "build:dev": "node scripts/generate-sitemap.mjs && vite build --mode development && cp public/.htaccess dist/.htaccess && node scripts/prerender-meta.mjs",
+    "build": "node scripts/generate-sitemap.mjs && vite build && cp public/.htaccess dist/.htaccess && node scripts/prerender-meta.mjs && node scripts/audit-seo.mjs",
+    "build:dev": "node scripts/generate-sitemap.mjs && vite build --mode development && cp public/.htaccess dist/.htaccess && node scripts/prerender-meta.mjs && node scripts/audit-seo.mjs",
+    "audit:seo": "node scripts/audit-seo.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."
