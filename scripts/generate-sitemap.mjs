@@ -28,6 +28,10 @@ const russianPubLocs = [
   "mapusa","arambol","siolim","saligao","nagoa","arpora","porvorim","vagator","south-goa","north-goa",
 ];
 const ladiesBarLocs = ["goa","calangute","baga-beach"];
+const bellyDanceLocs = [
+  "goa","calangute","baga-beach","candolim","anjuna","panjim","mandrem","nerul","morjim",
+  "mapusa","arambol","siolim","saligao","nagoa","arpora","porvorim","vagator","south-goa","north-goa",
+];
 
 const seoRoutes = [
   ...danceClubLocs.map((k) => `/dance-club-in-${k}/`),
@@ -38,6 +42,7 @@ const seoRoutes = [
   ...discoClubNightlife.map((k) => `/disco-club-${k}-goa-nightlife/`),
   ...russianPubLocs.map((k) => `/russian-pub-in-${k}/`),
   ...ladiesBarLocs.map((k) => `/ladies-bar-in-${k}/`),
+  ...bellyDanceLocs.map((k) => `/belly-dance-in-${k}/`),
 ];
 
 const staticRoutes = [

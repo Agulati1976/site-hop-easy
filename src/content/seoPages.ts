@@ -12,7 +12,8 @@ export type Category =
   | "russian-dance"
   | "disco-club"
   | "russian-pub"
-  | "ladies-bar";
+  | "ladies-bar"
+  | "belly-dance";
 
 export interface SeoPageData {
   slug: string;            // e.g. "dance-club-in-goa"
@@ -36,6 +37,7 @@ const CATEGORY_LABEL: Record<Category, string> = {
   "disco-club": "Disco Club",
   "russian-pub": "Russian Pub",
   "ladies-bar": "Ladies Bar",
+  "belly-dance": "Belly Dance",
 };
 
 const CATEGORY_KEYWORDS: Record<Category, string[]> = {
@@ -45,6 +47,14 @@ const CATEGORY_KEYWORDS: Record<Category, string[]> = {
   "disco-club": ["disco club", "nightclub", "russian night club", "disco party"],
   "russian-pub": ["russian pub", "russian bar", "russian lounge", "russian vodka bar"],
   "ladies-bar": ["ladies bar", "ladies night", "girls bar", "ladies dance bar"],
+  "belly-dance": [
+    "belly dance",
+    "belly dancers",
+    "live belly dance show",
+    "professional belly dancers",
+    "arabic belly dance",
+    "belly dance performance",
+  ],
 };
 
 const SHARED_KEYWORDS = [
@@ -71,6 +81,8 @@ function pageTitle(cat: Category, loc: string): string {
       return `${c} in ${loc} | Best Russian Bar & Lounge in ${loc}`;
     case "ladies-bar":
       return `${c} in ${loc} | Top Ladies Night & Russian Party Bar in ${loc}`;
+    case "belly-dance":
+      return `${c} in ${loc} | Live Belly Dance Shows & Performances in ${loc}`;
   }
 }
 
@@ -88,12 +100,16 @@ function pageDescription(cat: Category, loc: string): string {
       return `Russian pub in ${loc} — premium vodka, signature cocktails, hookah and authentic Russian lounge vibe. The most loved Russian bar and pub experience in ${loc}.`;
     case "ladies-bar":
       return `Ladies bar in ${loc} — safe, stylish and electrifying. Ladies night specials, Russian dancers, premium drinks and Goa's most upscale ladies bar experience in ${loc}.`;
+    case "belly-dance":
+      return `Watch the most mesmerising belly dance shows in ${loc} — professional belly dancers, Arabic & Russian fusion sets, live performances every night at Russian Night Lounge, ${loc}'s favourite belly dance destination.`;
   }
 }
 
 function pageH1(cat: Category, loc: string): string {
   const c = CATEGORY_LABEL[cat];
-  return cat === "russian-dance" ? `Russian Dance in ${loc}` : `${c} in ${loc}`;
+  if (cat === "russian-dance") return `Russian Dance in ${loc}`;
+  if (cat === "belly-dance") return `Belly Dance in ${loc}`;
+  return `${c} in ${loc}`;
 }
 
 function pageHero(cat: Category, loc: string): string {
@@ -110,6 +126,8 @@ function pageHero(cat: Category, loc: string): string {
       return `Premium vodka, Russian classics and an authentic lounge vibe right here in ${loc}.`;
     case "ladies-bar":
       return `Goa's most upscale ladies bar — stylish, safe and unforgettable nights in ${loc}.`;
+    case "belly-dance":
+      return `Live belly dance shows, Arabic rhythms and Russian fusion sets — ${loc}'s favourite belly dance destination.`;
   }
 }
 
@@ -124,6 +142,7 @@ function sectionsFor(cat: Category, loc: string): { h: string; p: string }[] {
     "disco-club": `The best disco club in ${loc} blends Russian electro, Bollywood remixes and international house into one non-stop dance floor. Russian Night Lounge is the disco that locals, tourists and the Russian community in ${loc} have made their default home for late-night clubbing in Goa.`,
     "russian-pub": `Looking for an authentic Russian pub in ${loc}? Step inside Russian Night Lounge — premium imported vodka, Russian beer, signature cocktails and a lounge ambience built around the spirit of Moscow nightlife. The most loved Russian bar in ${loc} is open every night till late.`,
     "ladies-bar": `A ladies bar in ${loc} should feel safe, glamorous and full of energy — and that's exactly what Russian Night Lounge delivers. Stylish décor, premium drinks, Russian dancers and Goa's most welcoming ladies-night experience in ${loc}.`,
+    "belly-dance": `Belly dance in ${loc} comes alive at Russian Night Lounge — Arabic-style oriental sets, Russian fusion choreography and the most-watched live belly dance shows in ${loc}.`,
   };
 
   return [
@@ -187,6 +206,262 @@ function faqsFor(cat: Category, loc: string): { q: string; a: string }[] {
     },
   ];
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Belly Dance — bespoke per-location builder with unique copy + cross-links.
+// Each page references 3 sibling belly-dance pages + 2 related category pages
+// + the homepage, so internal link equity flows across the whole cluster.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const BELLY_LOCS = [
+  "goa", "calangute", "baga-beach", "candolim", "anjuna", "panjim", "mandrem",
+  "nerul", "morjim", "mapusa", "arambol", "siolim", "saligao", "nagoa",
+  "arpora", "porvorim", "vagator", "south-goa", "north-goa",
+];
+
+interface LocFlavour {
+  vibe: string;           // 1-line vibe of the place
+  crowd: string;          // who fills the floor
+  travel: string;         // travel-from line
+  landmark: string;       // local hook
+}
+
+const BELLY_FLAVOUR: Record<string, LocFlavour> = {
+  goa: {
+    vibe: "Goa is India's nightlife capital, and belly dance is the show that keeps the season buzzing",
+    crowd: "international tourists, the Russian expat community and Bollywood weekenders",
+    travel: "All North Goa hubs reach the lounge in under 25 minutes",
+    landmark: "five minutes from Calangute beach and Tito's Lane",
+  },
+  calangute: {
+    vibe: "Calangute is Goa's most-loved nightlife strip, and belly dance is its signature live act",
+    crowd: "Calangute hotel guests, beach-shack diners and the weekend Mumbai crowd",
+    travel: "Walking distance from most Calangute beachfront resorts",
+    landmark: "right next to Club Midnight, Calangute 403516",
+  },
+  "baga-beach": {
+    vibe: "Baga Beach never sleeps, and our belly dance shows are the after-beach highlight",
+    crowd: "Baga shack regulars, water-sports tourists and Tito's Lane party-hoppers",
+    travel: "A 7-minute drive from Tito's Lane and Baga creek",
+    landmark: "minutes from Britto's, Cape Town Café and the Baga shack belt",
+  },
+  candolim: {
+    vibe: "Candolim's upscale stretch deserves an upscale belly dance lounge",
+    crowd: "honeymooners, Candolim resort guests and Aguada-side regulars",
+    travel: "10-minute taxi from Candolim Beach Road",
+    landmark: "easy ride from Sinquerim, Aguada and Candolim Beach",
+  },
+  anjuna: {
+    vibe: "Anjuna's bohemian crowd loves a proper belly dance set after the beach",
+    crowd: "Anjuna flea-market shoppers, hippy regulars and trance-night crews",
+    travel: "15-minute scenic ride from Anjuna Beach Road",
+    landmark: "perfectly placed after a day at Anjuna or Curlies",
+  },
+  panjim: {
+    vibe: "Panjim's Latin-quarter charm pairs beautifully with our oriental belly dance nights",
+    crowd: "Panjim residents, casino guests and old-Goa weekenders",
+    travel: "About 25 minutes from Panjim via NH66",
+    landmark: "the closest authentic belly dance lounge to Panjim & Miramar",
+  },
+  mandrem: {
+    vibe: "Mandrem is yoga-quiet by day, but our belly dance lounge gives the area its night-out",
+    crowd: "wellness travellers, North-tip stayers and Ashvem regulars",
+    travel: "30-minute scenic drive south from Mandrem via Siolim bridge",
+    landmark: "Mandrem's closest premium belly dance show venue",
+  },
+  nerul: {
+    vibe: "Nerul's quiet riverside calls for a glamorous belly dance escape down the road",
+    crowd: "Nerul villa guests, Coco Beach diners and Reis Magos visitors",
+    travel: "Under 15 minutes from Nerul via Verem-Candolim route",
+    landmark: "fastest belly dance lounge from Nerul & Coco Beach",
+  },
+  morjim: {
+    vibe: "Morjim — the original 'Little Russia' of Goa — deserves the most authentic belly dance show in the state",
+    crowd: "the Russian community, long-stay European tourists and Ashvem regulars",
+    travel: "25-minute drive south from Morjim across Chapora bridge",
+    landmark: "the original belly dance home of Goa's Russian community",
+  },
+  mapusa: {
+    vibe: "Mapusa locals know — for a real belly dance night out, you head straight to Calangute",
+    crowd: "Mapusa residents, market-day visitors and North Goa locals",
+    travel: "15-minute drive west from Mapusa via Calangute Road",
+    landmark: "closest premium belly dance venue from Mapusa town",
+  },
+  arambol: {
+    vibe: "Arambol's drum-circle crowd pairs perfectly with a glamorous belly dance night down south",
+    crowd: "Arambol drum-circle regulars, long-stayers and yoga retreat guests",
+    travel: "35-minute scenic ride south from Arambol",
+    landmark: "Arambol's go-to premium belly dance lounge",
+  },
+  siolim: {
+    vibe: "Siolim sits perfectly between North-tip beaches and our belly dance dance floor",
+    crowd: "Siolim villa guests, Chapora regulars and Vagator party crews",
+    travel: "20-minute drive from Siolim circle",
+    landmark: "the easiest premium belly dance venue from Siolim",
+  },
+  saligao: {
+    vibe: "Saligao's heritage feel deserves a heritage-grade belly dance show",
+    crowd: "Saligao villa guests, foodie travellers and Sangolda regulars",
+    travel: "10-minute ride down from Saligao to Calangute",
+    landmark: "Saligao's nearest authentic belly dance lounge",
+  },
+  nagoa: {
+    vibe: "Nagoa's quiet villas and big resorts deserve a proper belly dance night out",
+    crowd: "Nagoa resort guests and Calangute-Arpora party-hoppers",
+    travel: "Under 10 minutes from Nagoa",
+    landmark: "the most-recommended belly dance show by Nagoa stays",
+  },
+  arpora: {
+    vibe: "Arpora's Saturday Night Market crowd loves a proper belly dance after-party",
+    crowd: "Arpora night-market shoppers, Baga residents and Saturday-night crews",
+    travel: "5-minute hop from Arpora down to Calangute",
+    landmark: "closest belly dance show from Arpora Saturday Night Market",
+  },
+  porvorim: {
+    vibe: "Porvorim's premium residences deserve a premium belly dance experience",
+    crowd: "Porvorim residents, corporate travellers and Mapusa locals",
+    travel: "20-minute drive from Porvorim via NH66",
+    landmark: "Porvorim's nearest belly dance lounge with Russian fusion sets",
+  },
+  vagator: {
+    vibe: "Vagator's cliff-top sunsets pair perfectly with our late-night belly dance shows",
+    crowd: "Vagator beach regulars, Chapora crews and Anjuna-side travellers",
+    travel: "20-minute scenic ride south from Vagator",
+    landmark: "Vagator's nearest authentic belly dance show",
+  },
+  "south-goa": {
+    vibe: "South Goa's quieter coast is missing one thing — a proper belly dance night out",
+    crowd: "South Goa resort guests, Colva regulars and Margao weekenders",
+    travel: "Under 90 minutes from most South Goa resorts via NH66",
+    landmark: "the most-driven-to belly dance venue for South Goa guests",
+  },
+  "north-goa": {
+    vibe: "North Goa is the home of nightlife, and belly dance is the show that defines the season",
+    crowd: "everyone from Anjuna's bohemians to Candolim's honeymooners",
+    travel: "Reachable in under 25 minutes from every major North Goa hub",
+    landmark: "the most-booked belly dance show across North Goa",
+  },
+};
+
+function bellyCrossLinks(currentLocKey: string): { sibling: string; siblingPath: string; siblingLabel: string }[] {
+  // Pick 3 sibling belly-dance pages (deterministic rotation by index)
+  const idx = BELLY_LOCS.indexOf(currentLocKey);
+  const siblings: string[] = [];
+  for (let i = 1; siblings.length < 3 && i < BELLY_LOCS.length; i++) {
+    const next = BELLY_LOCS[(idx + i) % BELLY_LOCS.length];
+    if (next !== currentLocKey) siblings.push(next);
+  }
+  return siblings.map((k) => ({
+    sibling: k,
+    siblingPath: `/belly-dance-in-${k}/`,
+    siblingLabel: `Belly Dance in ${LOC_NAMES[k]}`,
+  }));
+}
+
+function bellyDanceSectionsFor(locKey: string, loc: string): { h: string; p: string }[] {
+  const f = BELLY_FLAVOUR[locKey];
+  const links = bellyCrossLinks(locKey);
+  const [l1, l2, l3] = links;
+  // Related category cross-links (homepage + russian-dance + russian-pub variants)
+  const relatedRussianDance = `/russian-dance-in-${locKey === "calangute" || locKey === "saligao" ? locKey : "goa"}/`;
+  const relatedClub = locKey === "calangute" || locKey === "baga-beach"
+    ? `/dance-club-in-${locKey}/`
+    : `/dance-club-in-goa/`;
+
+  return [
+    {
+      h: `The Best Belly Dance in ${loc}`,
+      p: `${f.vibe}. At Russian Night Lounge, our belly dance in ${loc} is more than a performance — it's the centrepiece of the night. Our resident belly dancers blend traditional Arabic technique with Russian-style choreography you won't see anywhere else in Goa. If you've been searching for the real, professionally produced <a href="/belly-dance-in-goa/">belly dance in Goa</a> experience, your search ends in ${loc}.`,
+    },
+    {
+      h: `Why Russian Night Lounge for Belly Dance in ${loc}`,
+      p: `Most venues advertising belly dance in ${loc} bring in part-timers for a 10-minute appearance. We don't. Our belly dancers are full-time professional artists trained in oriental, Egyptian-cabaret and Russian fusion styles, performing three full rotating sets every night. Add live DJ accompaniment, dramatic lighting and an audience that knows good belly dance when they see it, and you understand why ${f.crowd} keep coming back. Compare the standard yourself — pair this with our <a href="${relatedClub}">dance club experience</a> and you'll see the difference.`,
+    },
+    {
+      h: `What Our Belly Dance Show in ${loc} Looks Like`,
+      p: `Doors open at 8:30 PM. By 9:30 PM the first oriental set begins — classical Arabic rhythms, veil work and a slow build that warms up the floor. The 11 PM set is our signature Russian fusion belly dance — faster, theatrical, with costume changes and choreography built around our DJ's live mix. The midnight set goes full carnival — drums, audience interaction and the crowd on its feet. Every belly dance in ${loc} show we put on is choreographed to feel like a Las Vegas residency rather than a hotel-lobby act.`,
+    },
+    {
+      h: `Belly Dance, Russian Dance & The Full Night Out in ${loc}`,
+      p: `Belly dance is the headliner, but the night doesn't stop there. Between sets, our resident DJs spin Russian electro, Bollywood remixes and international house. Pole-dance interludes run on Saturdays. If you love the belly dance shows in ${loc}, you'll equally love our wider <a href="${relatedRussianDance}">Russian dance line-up</a> — same dancers, different specialisms. It's the most complete dance entertainment package in ${loc}, full stop.`,
+    },
+    {
+      h: `Drinks, Hookah & a Bar Worthy of the Belly Dance in ${loc}`,
+      p: `A belly dance night in ${loc} needs a bar that lives up to it. Ours is stacked — imported vodka flights, single-malts, Arabic-inspired signature cocktails, mocktails and an unlimited-drinks package on themed nights. The hookah menu features over a dozen premium flavours served straight to your table. The food menu pairs Russian classics with Arabic mezze, Goan favourites and continental late-night plates — designed to keep you at the lounge for the full belly dance show in ${loc}.`,
+    },
+    {
+      h: `Who Comes to Watch Belly Dance in ${loc}`,
+      p: `Our belly dance crowd in ${loc} is what makes the room. ${f.crowd[0].toUpperCase() + f.crowd.slice(1)} all share one dance floor, and the energy is electric without ever feeling rowdy. It's stylish, safe and properly fun — exactly what a belly dance night in ${loc} should feel like. Curious which other locations love it as much as ${loc}? Check our shows in <a href="${l1.siblingPath}">${l1.siblingLabel}</a>, <a href="${l2.siblingPath}">${l2.siblingLabel}</a> and <a href="${l3.siblingPath}">${l3.siblingLabel}</a> — same dancers, same level of show.`,
+    },
+    {
+      h: `Perfect for Birthdays, Bachelorettes & Corporate Nights in ${loc}`,
+      p: `Booking a belly dance event in ${loc} for a special night? Russian Night Lounge handles it end-to-end. Bachelorettes get a reserved front-row banquette and a personalised dancer dedication. Birthdays get a custom cake-cutting set choreographed into the belly dance show. Corporate teams in ${loc} regularly buy out the venue for client dinners and offsite parties — we customise the show, menu and music to match. Tell us the occasion and we'll engineer the perfect belly dance night in ${loc} around it.`,
+    },
+    {
+      h: `Getting to Our Belly Dance Show from ${loc}`,
+      p: `Russian Night Lounge is located ${f.landmark} — Club Midnight, Calangute, North Goa 403516. ${f.travel}, and our team can recommend the fastest route on call. Ride-share, pre-paid taxis and self-drive rentals all work. Doors at 8:30 PM, first belly dance set at 9:30 PM, and the music runs till 3–4 AM on weekends. Browse the full <a href="/">Russian Night Lounge homepage</a> for tonight's line-up.`,
+    },
+    {
+      h: `Book the Best Belly Dance in ${loc} Tonight`,
+      p: `Front-row tables for our belly dance show in ${loc} sell out on weekends and through the Goa season. Call or WhatsApp +91 87934 32338 to lock in your seat — we'll confirm timings, walk you through packages and reserve the best table for your group. See you on the dance floor — and don't forget to compare with our shows in <a href="${l1.siblingPath}">${l1.siblingLabel}</a> and <a href="${l2.siblingPath}">${l2.siblingLabel}</a> for your next visit.`,
+    },
+  ];
+}
+
+function bellyDanceFaqsFor(loc: string): { q: string; a: string }[] {
+  return [
+    {
+      q: `Where can I watch the best belly dance in ${loc}?`,
+      a: `Russian Night Lounge runs Goa's most-watched professional belly dance show, with three live sets every night — and it's the closest premium belly dance venue serving the ${loc} crowd.`,
+    },
+    {
+      q: `What time does the belly dance show in ${loc} start?`,
+      a: `Doors open at 8:30 PM. The first belly dance set begins around 9:30 PM, followed by 11 PM and midnight sets. Music continues till 3–4 AM on weekends.`,
+    },
+    {
+      q: `Do I need to book in advance for belly dance in ${loc}?`,
+      a: `Yes — front-row and VIP tables sell out, especially on weekends and through the Goa season. Call or WhatsApp +91 87934 32338 to reserve.`,
+    },
+    {
+      q: `Is the belly dance show in ${loc} family-friendly?`,
+      a: `Yes. Our belly dance is professionally choreographed in traditional Arabic and Russian fusion styles — it's a stage show, not a strip act. Couples, friends and groups all enjoy it.`,
+    },
+    {
+      q: `Are there drinks and food available during the belly dance show?`,
+      a: `Absolutely — full bar with imported vodka, signature cocktails, premium hookah and a kitchen serving Russian, Arabic, Indian and continental plates till late.`,
+    },
+  ];
+}
+
+function buildBellyDancePage(locKey: string): SeoPageData {
+  const location = LOC_NAMES[locKey];
+  const slug = `belly-dance-in-${locKey}`;
+  return {
+    slug,
+    path: `/${slug}/`,
+    category: "belly-dance",
+    location,
+    locKey,
+    title: pageTitle("belly-dance", location),
+    description: pageDescription("belly-dance", location),
+    h1: pageH1("belly-dance", location),
+    hero: pageHero("belly-dance", location),
+    sections: bellyDanceSectionsFor(locKey, location),
+    keywords: [
+      `belly dance in ${location.toLowerCase()}`,
+      `belly dancers in ${location.toLowerCase()}`,
+      `belly dance show ${location.toLowerCase()}`,
+      `live belly dance ${location.toLowerCase()}`,
+      `professional belly dancers ${location.toLowerCase()}`,
+      `arabic belly dance ${location.toLowerCase()}`,
+      `russian belly dance ${location.toLowerCase()}`,
+      ...CATEGORY_KEYWORDS["belly-dance"].map((k) => `${k} in ${location.toLowerCase()}`),
+      ...SHARED_KEYWORDS,
+    ],
+    faqs: bellyDanceFaqsFor(location),
+  };
+}
+
 
 function buildSeoPage(category: Category, slug: string, locKey: string, location: string, path?: string): SeoPageData {
   return {
@@ -292,6 +567,8 @@ export const SEO_PAGES: SeoPageData[] = [
   ...LOCS.ladiesBar.map((k) =>
     buildSeoPage("ladies-bar", `ladies-bar-in-${k}`, k, LOC_NAMES[k]),
   ),
+  // Belly dance — bespoke per-location pages with unique copy and cross-links
+  ...BELLY_LOCS.map((k) => buildBellyDancePage(k)),
 ];
 
 export function findSeoPage(path: string): SeoPageData | undefined {
